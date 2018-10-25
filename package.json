@@ -13,7 +13,10 @@
   "main": "app.js",
   "scripts": {
     "test": "",
-    "start": "node app.js"
+    "dev:build": "docker build -t sean-github/mock-blockchain .",
+    "start": "node app.js",
+    "start:dev:ssh": "docker run -it sean-github/mock-blockchain /bin/bash",
+    "start:dev": "npm run dev:build | docker run -p 8085:8085 -d sean-github/mock-blockchain"
   },
   "repository": {
     "type": "git",

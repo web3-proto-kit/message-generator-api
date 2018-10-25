@@ -39,5 +39,5 @@ async function queryMessages(req, res){
    }
 }
 
-app.listen(8081, () => console.log(`mock-blockchain-swagger-ui listening on port 8081!`));
-log.logMessage("info", "Server is listening on port %d", 8081);
+app.listen(8085, () => console.log(`mock-blockchain-swagger-ui listening on port 8085!`));
+log.logMessage("info", "Server is listening on port %d", 8085);
