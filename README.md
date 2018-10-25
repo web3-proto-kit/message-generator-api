@@ -27,9 +27,10 @@ JSON ARRAY
 
 # Usage
 1. Clone the directory
-2. npm install
+2. npm run start:dev
 3. npm scripts
    - npm start
    - npm run dev:build
-   - npm run start:dev:ssh 
    - npm run dev:build
+   - npm run start:dev:ssh 
+   - npm run start:dev
