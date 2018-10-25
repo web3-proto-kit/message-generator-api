@@ -13,13 +13,15 @@ JSON
 ```
 Response Payload:
 JSON ARRAY
-```[
+```
+[
   {
     "sender-id": "uuid",
     "reciever-id": "uuid",
     "message-id": "uuid",
     "message-payload: "message as string here..."
   }
-]```
+]
+```
 
 
