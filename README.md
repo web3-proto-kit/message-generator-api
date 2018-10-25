@@ -12,8 +12,8 @@ JSON
 }
 ```
 Response Payload:
-JSON ARRAY
 ```
+JSON ARRAY
 [
   {
     "sender-id": "uuid",
@@ -25,4 +25,14 @@ JSON ARRAY
 ]
 ```
 
+# Usage
+1. Clone the directory
+2. npm run start:dev
+3. npm scripts
+   - npm start
+   - npm run dev:build
+   - npm run dev:build
+   - npm run start:dev:ssh 
+   - npm run start:dev
 
+Access at http://localhost:8085/
