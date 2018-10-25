@@ -21,7 +21,7 @@ app.get("/healthcheck", (req, res) => {
    res.send('Hello World!');
 });
 
-app.post("/query/messages", (req, res) => {
+app.get("/query/messages", (req, res) => {
    queryMessages(req, res);
 });
 
