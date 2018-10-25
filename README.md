@@ -20,7 +20,8 @@ JSON ARRAY
     "reciever-id": "uuid",
     "message-id": "uuid",
     "message-payload: "message as string here..."
-  }
+  },
+  ...
 ]
 ```
 
