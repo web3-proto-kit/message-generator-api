@@ -12,8 +12,8 @@ JSON
 }
 ```
 Response Payload:
-JSON ARRAY
 ```
+JSON ARRAY
 [
   {
     "sender-id": "uuid",
