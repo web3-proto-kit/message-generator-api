@@ -1,6 +1,6 @@
-const express = require('express');
-const log = require('cf-nodejs-logging-support');
-const { generateMessages } = require('./services/generateMessages');
+import express from 'express';
+import log from 'cf-nodejs-logging-support';
+import { generateMessages } from './services/generateMessages';
 
 const app = express();
 
@@ -24,7 +24,7 @@ app.get('/query/messages', (req, res) => {
   queryMessages(req, res);
 });
 
-async function queryMessages(req, res) {
+const queryMessages = async (req, res) => {
   try {
     const messages = await generateMessages(20);
     const correlationId = req.header('X-Correlation-Id');
@@ -36,7 +36,7 @@ async function queryMessages(req, res) {
   } finally {
     req.logMessage('info', 'Succesfully generated messaged.');
   }
-}
+};
 
 app.listen(8085, () => console.log('mock-blockchain-swagger-ui listening on port 8085!'));
 log.logMessage('info', 'Server is listening on port %d', 8085);

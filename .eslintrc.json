@@ -12,9 +12,10 @@
             }
         ],
         "no-use-before-define": [
-            1,
+            2,
             {
-                "functions": false
+                "functions": false,
+                "variables": false
             }
         ]
     }
