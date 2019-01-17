@@ -3,5 +3,19 @@
     "env": {
         "node": true,
         "es6": true
+    },
+    "rules": {
+        "no-plusplus": [
+            1,
+            {
+                "allowForLoopAfterthoughts": true
+            }
+        ],
+        "no-use-before-define": [
+            1,
+            {
+                "functions": false
+            }
+        ]
     }
 }
