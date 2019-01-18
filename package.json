@@ -22,8 +22,8 @@
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "start": "forever -c 'nodemon --exitcrash --exec babel-node' src/app.js",
-    "start:dev:ssh": "docker run -it sean-github/mock-blockchain /bin/bash",
-    "start:dev": "npm run dev:build && docker run -p 8085:8085 -d sean-github/mock-blockchain --network='host'",
+    "start:docker:ssh": "docker run -it sean-github/mock-blockchain /bin/bash",
+    "start:docker": "npm run build:docker && docker run -p 8085:8085 -d sean-github/mock-blockchain --network='host'",
     "serve": "node lib/src/app.js",
     "test": "npm-run-all build test:mocha",
     "test:mocha": "find ./lib/tests/* -name '*_test.js' | xargs mocha --require @babel/polyfill --exit -R spec"
