@@ -1,3 +1,4 @@
+import '@babel/polyfill';
 import express from 'express';
 import log from 'cf-nodejs-logging-support';
 import { generateMessages } from './services/generateMessages';

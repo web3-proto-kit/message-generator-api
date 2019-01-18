@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "dependencies": {
+    "@babel/polyfill": "^7.2.5",
     "ajv": "^6.5.4",
     "body-parser": "^1.18.3",
     "cf-nodejs-logging-support": "^3.0.12",
@@ -12,13 +13,21 @@
   },
   "main": "app.js",
   "scripts": {
-    "test": "",
-    "dev:build": "docker build -t sean-github/mock-blockchain .",
+    "build": "npm-run-all clean build:src build:tests",
+    "build:src": "babel src -d lib/src --copy-files",
+    "build:tests": "babel tests -d lib/tests",
+    "build:dev": "docker build -t sean-github/mock-blockchain .",
+    "clean": "npm-run-all clean:src clean:tests",
+    "clean:src": "rimraf lib/src",
+    "clean:tests": "rimraf lib/tests",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
-    "start": "babel-node app.js",
+    "start": "forever -c 'nodemon --exitcrash --exec babel-node' src/app.js",
     "start:dev:ssh": "docker run -it sean-github/mock-blockchain /bin/bash",
-    "start:dev": "npm run dev:build && docker run -p 8085:8085 -d sean-github/mock-blockchain --network='host'"
+    "start:dev": "npm run dev:build && docker run -p 8085:8085 -d sean-github/mock-blockchain --network='host'",
+    "serve": "node lib/src/app.js",
+    "test": "npm-run-all build test:mocha",
+    "test:mocha": "find ./lib/tests/* -name '*_test.js' | xargs mocha --require @babel/polyfill --exit -R spec"
   },
   "repository": {
     "type": "git",
@@ -33,10 +42,14 @@
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.2.2",
     "@babel/node": "^7.2.2",
-    "@babel/polyfill": "^7.2.5",
     "@babel/preset-env": "^7.2.3",
     "eslint": "^5.12.0",
     "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.14.0"
+    "eslint-plugin-import": "^2.14.0",
+    "forever": "^0.15.3",
+    "mocha": "^5.2.0",
+    "nodemon": "^1.18.9",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^2.6.3"
   }
 }
