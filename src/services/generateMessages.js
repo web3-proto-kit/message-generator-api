@@ -1,6 +1,6 @@
 import uuidv4 from 'uuid/v4';
 
-export const generateMessages = async (max) => {
+const generateMessages = (max) => {
   // random amount of messages between 1 - max
   const numMessages = Math.floor(Math.random() * Math.floor(max));
   const messages = [];
@@ -19,6 +19,4 @@ const buildMessage = () => {
   return message;
 };
 
-export default {
-  generateMessages,
-};
+export default generateMessages;

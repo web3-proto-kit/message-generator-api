@@ -1,7 +1,7 @@
 import '@babel/polyfill';
 import express from 'express';
 import log from 'cf-nodejs-logging-support';
-import { generateMessages } from './services/generateMessages';
+import generateMessages from './services/generateMessages';
 
 const app = express();
 
@@ -27,7 +27,7 @@ app.get('/query/messages', (req, res) => {
 
 const queryMessages = async (req, res) => {
   try {
-    const messages = await generateMessages(20);
+    const messages = generateMessages(20);
     const correlationId = req.header('X-Correlation-Id');
     res.set('X-Correlation-Id', correlationId);
     res.send(JSON.stringify({ messages }));
